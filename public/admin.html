@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Administrador - Registro de Alumnos</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: white;
+        }
+        .encabezado {
+            background-color: #6c757d;
+            color: white;
+            padding: 10px;
+        }
+        .content {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="encabezado">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h2>Panel de Administrador</h2>
+                </div>
+                <div class="col-md-6 text-right">
+                    <a href="login.html" class="btn btn-danger">Cerrar Sesión</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="list-group">
+                    <a href="#" class="list-group-item list-group-item-action active">
+                        Menú
+                    </a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="mostrarFormulario('alumnos')">Registro de Alumnos</a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="mostrarFormulario('profesores')">Registro de Profesores</a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="mostrarFormulario('cursos')">Registro de Cursos</a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="mostrarListado('alumnos')">Lista de Alumnos</a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="mostrarListado('profesores')">Lista de Profesores</a>
+                    <a href="#" class="list-group-item list-group-item-action" onclick="mostrarListado('cursos')">Lista de Cursos</a>
+                </div>
+            </div>
+            <div class="col-md-9">
+                <div class="content" id="contenido">
+                    <!-- Contenido de acuerdo a las opciones -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+      function mostrarFormulario(tipo) {
+          let contenido = document.getElementById('contenido');
+          let formularioHtml = '';
+  
+          switch (tipo) {
+              case 'alumnos':
+                  formularioHtml = `
+                      <h3>Registro de Alumnos</h3>
+                      <form>
+                          <div class="form-group">
+                              <label for="nombre">Nombres:</label>
+                              <input type="text" class="form-control" id="nombre" name="nombre">
+                          </div>
+                          <div class="form-group">
+                              <label for="apellido">Apellidos:</label>
+                              <input type="text" class="form-control" id="apellido" name="apellido">
+                          </div>
+                          <!-- Más campos aquí -->
+                          <div class="form-group">
+                              <label for="correo">Correo:</label>
+                              <input type="text" class="form-control" id="correo" name="correo">
+                          </div>
+                          <div class="form-group">
+                              <label for="usuario">Usuario:</label>
+                              <input type="text" class="form-control" id="usuario" name="usuario">
+                          </div>
+                          <div class="form-group">
+                              <label for="contraseña">Contraseña:</label>
+                              <input type="text" class="form-control" id="contraseña" name="contraseña">
+                          </div>
+                          <button type="submit" class="btn btn-primary">Registrar</button>
+                      </form>
+                  `;
+                  break;
+              case 'profesores':
+                  formularioHtml = `
+                      <h3>Registro de Profesores</h3>
+                      <form>
+                          <div class="form-group">
+                              <label for="nombre">Nombres:</label>
+                              <input type="text" class="form-control" id="nombre" name="nombre">
+                          </div>
+                          <div class="form-group">
+                              <label for="apellido">Apellidos:</label>
+                              <input type="text" class="form-control" id="apellido" name="apellido">
+                          </div>
+                          <div class="form-group">
+                              <label for="correo">Correo:</label>
+                              <input type="text" class="form-control" id="correo" name="correo">
+                          </div>
+                          <div class="form-group">
+                              <label for="usuario">Usuario:</label>
+                              <input type="text" class="form-control" id="usuario" name="usuario">
+                          </div>
+                          <div class="form-group">
+                              <label for="contraseña">Contraseña:</label>
+                              <input type="text" class="form-control" id="contraseña" name="contraseña">
+                          </div>
+                          <!-- Más campos aquí -->
+                          <button type="submit" class="btn btn-primary">Registrar</button>
+                      </form>
+                  `;
+                  break;
+              case 'cursos':
+                  formularioHtml = `
+                      <h3>Registro de Cursos</h3>
+                      <form>
+                          <div class="form-group">
+                              <label for="nombre">Nombre del Curso:</label>
+                              <input type="text" class="form-control" id="nombre" name="nombre">
+                          </div>
+                          <div class="form-group">
+                              <label for="horario">Horario:</label>
+                              <input type="text" class="form-control" id="horario" name="horario">
+                          </div>
+                          <div class="form-group">
+                              <label for="descripcion">Descripción:</label>
+                              <textarea class="form-control" id="descripcion" name="descripcion" rows="3"></textarea>
+                          </div>
+                          <!-- Más campos aquí -->
+                          <button type="submit" class="btn btn-primary">Registrar</button>
+                      </form>
+                  `;
+                  break;
+          }
+  
+          contenido.innerHTML = formularioHtml;
+      }
+  
+      function mostrarListado(tipo) {
+          // Lógica para mostrar el listado correspondiente
+          let contenido = document.getElementById('contenido');
+          contenido.innerHTML = `<h3>Listado de ${tipo}</h3>`;
+      }
+  </script>
+  </body>
+  </html>
